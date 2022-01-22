@@ -17,7 +17,7 @@ router.get("/all", async (req, res) => {
     } catch (error) {
         console.log(error.message)
         return res.status(500).json({
-            users: [],
+            categories: [],
             message: "error fetching categories"
         })
     }
