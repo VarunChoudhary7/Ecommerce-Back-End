@@ -48,8 +48,8 @@ router.post("/add",
         if (errors.length > 0) return res.status(403).json({ errors, message: "Bad Request" })
 
         try {
-            //isf category exists
-            const category = Category.findById(req.body.category)
+            //if category exists
+            const category = await Category.findById(req.body.category)
             if (!category) return res.status(300).json({
                 product: null,
                 message: 'Invalid Category'
