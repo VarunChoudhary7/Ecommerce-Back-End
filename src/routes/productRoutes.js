@@ -69,11 +69,11 @@ router.post('/add',
         try {
             // check if category exists
             const category = await Category.findById(req.body.category)
+
             if (!category) return res.status(300).json({
                 product: null,
                 message: "Invalid category"
             })
-
             const product = new Product(req.body);
             await product.save()
             res.status(200).json({
