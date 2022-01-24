@@ -14,6 +14,7 @@ const port = process.env.PORT || 3003
 connectDB()
 
 app.use(cors())
+
 app.use(express.json())
 
 //route to handle auth request
