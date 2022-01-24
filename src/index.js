@@ -12,6 +12,7 @@ const app = express()
 const port = process.env.PORT || 3003
 
 connectDB()
+
 app.use(cors())
 app.use(express.json())
 
