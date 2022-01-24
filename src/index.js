@@ -27,5 +27,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(port, (req, res) => {
-    console.log(`Server listening at port ${port}`)
+    console.log(`Server listening at port ${port} (Deployed from workflow)`)
 })
