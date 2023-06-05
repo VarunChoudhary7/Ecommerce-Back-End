@@ -1,6 +1,7 @@
 import express from "express"
 import Category from "../services/mongoDB/models/Category"
 import { body, validationResult } from "express-validator"
+import isAdmin from "../middlewares/isAdmin"
 
 const router = express.Router()
 /* 
@@ -10,7 +11,7 @@ params are none
 isProtected: false 
 */
 
-router.get("/all", async (req, res) => {
+router.get("/all", isAdmin, async (req, res) => {
     try {
         const categories = await Category.find({})
         return res.json({ categories, message: "Successfully fetched categories" })
@@ -30,7 +31,7 @@ params are none
 isProtected: true (admin) 
 */
 
-router.post("/add",
+router.post("/add", isAdmin,
     body('name').isLength({ min: 1 }),
     body('description').isLength({ min: 10 })
     , async (req, res) => {
