@@ -13,7 +13,10 @@ const port = process.env.PORT || 3003
 
 connectDB()
 
-app.use(cors())
+app.use(cors({
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+}))
 
 app.use(express.json())
 
